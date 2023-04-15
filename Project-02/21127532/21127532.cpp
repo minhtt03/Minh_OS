@@ -487,7 +487,7 @@ void SJF_Schedule(int NoProcess, vector<char>&CPU_Gantt, vector<char> &R_Gantt,S
 
         if (FinishedProcess==NoProcess)break;
 
-        if ( Time_CPUAcess == 0)
+        if ( Time_CPUAcess ==0)
         {
             for ( int i =0; i < Ready_CPU.size();i++)
             {
@@ -544,17 +544,12 @@ void SJF_Algo()
 }
 
 
-// int main(int argc, const char * argv[])
-int main()
+int main(int argc, const char * argv[])
 {
-    
-//     fin.open(argv[1]);
-//     fout.open(argv[2]);
-    fin.open("Input.txt");
-    fout.open("Output.txt");
+    fin.open(argv[1]);
+    fout.open(argv[2]);
     int Type;
     fin>>Type;
-    cin>>Type;
     switch(Type)
     {
         case 1:
