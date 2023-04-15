@@ -5,7 +5,7 @@
 //  Created by MBA on 4/13/23.
 //
 
-#include "RR.hpp"
+#include "RR.h"
 void readProcess(int &n,int &Quantum ,RR a[4])
 {
     ifstream fin;
@@ -15,14 +15,15 @@ void readProcess(int &n,int &Quantum ,RR a[4])
     fin.ignore();
     for ( int i=0; i<n; i++ )
     {
-        string process ="";
-        string temp ="";
+        string process;
+        string temp;
         int flag =-1;
         
         getline(fin,process);
-        char arrival[process.length() +1];
-        char cpu[process.length() +1];
-        char r[process.length() +1];
+
+        char arrival[process.size() +1];
+        char cpu[process.size() +1];
+        char r[process.size() +1];
         for ( int j=0; j<process.size();j++)
         {
             
@@ -36,13 +37,13 @@ void readProcess(int &n,int &Quantum ,RR a[4])
                 }
                 else if ( flag ==0 )//cpu
                 {
-                    stpcpy(cpu, process.c_str());
+                    strcpy(cpu, process.c_str());
                     a[i].CPU_Burst.push_back(atoi(cpu));
                     flag = 1;
                 }
                 else //r
                 {
-                    stpcpy(r, process.c_str());
+                    strcpy(r, process.c_str());
                     a[i].CPU_Burst.push_back(atoi(r));
                     flag = 0;
                 }
@@ -56,6 +57,7 @@ void readProcess(int &n,int &Quantum ,RR a[4])
         }
     }
 }
+
 void RR_Schedule(int NoProcess,int Quantum, vector<char>&CPU_Gantt, vector<char> &R_Gantt,RR a[4])
 {
     vector<int> Ready_CPU;//index of process in CPU queue

@@ -7,15 +7,16 @@
 
 #include <iostream>
 #include <fstream>
-#include "FCFS.hpp"
-#include "SJF.hpp"
-#include "RR.hpp"
-#include "SRTN.hpp"
+#include "FCFS.h"
+#include "SJF.h"
+#include "RR.h"
+#include "SRTN.h"
 using namespace std;
+fstream f;
 
 int main(int argc, const char * argv[])
 {
-    fstream f;
+    
     f.open(argv[1],ios::in);
     f.open(argv[2],ios::out);
     int Type;

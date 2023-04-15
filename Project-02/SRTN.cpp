@@ -5,7 +5,7 @@
 //  Created by MBA on 4/13/23.
 //
 
-#include "SRTN.hpp"
+#include "SRTN.h"
 void read_Process(int &n,SRTN a[4])
 {
     ifstream fin;
@@ -34,13 +34,13 @@ void read_Process(int &n,SRTN a[4])
                 }
                 else if ( flag ==0 )//cpu
                 {
-                    stpcpy(cpu, process.c_str());
+                    strcpy(cpu, process.c_str());
                     a[i].CPU_Burst.push_back(atoi(cpu));
                     flag = 1;
                 }
                 else //r
                 {
-                    stpcpy(r, process.c_str());
+                    strcpy(r, process.c_str());
                     a[i].CPU_Burst.push_back(atoi(r));
                     flag = 0;
                 }
@@ -54,7 +54,7 @@ void read_Process(int &n,SRTN a[4])
         }
     }
 }
-void SRTN_Schedule(int NoProcess,vector<int>&CPU_Gantt,vector<int>&R_Gantt,SRTN a[4])
+void SRTN_Schedule(int NoProcess,vector<int>CPU_Gantt,vector<int>R_Gantt,SRTN a[4])
 {
     vector<int> Ready_CPU;//index of process in CPU queue
     vector<int> Ready_R;//index of process in R queue

@@ -5,7 +5,7 @@
 //  Created by MBA on 4/11/23.
 //
 
-#include "FCFS.hpp"
+#include "FCFS.h"
 
 void readProcess(int &n,FCFS a[4])
 {
@@ -35,13 +35,13 @@ void readProcess(int &n,FCFS a[4])
                 }
                 else if ( flag ==0 )//cpu
                 {
-                    stpcpy(cpu, process.c_str());
+                    strcpy(cpu, process.c_str());
                     a[i].CPU_Burst.push_back(atoi(cpu));
                     flag = 1;
                 }
                 else //r
                 {
-                    stpcpy(r, process.c_str());
+                    strcpy(r, process.c_str());
                     a[i].CPU_Burst.push_back(atoi(r));
                     flag = 0;
                 }
@@ -139,6 +139,7 @@ void FCFS_Schedule(int NoProcess, vector<char>&CPU_Gantt, vector<char> &R_Gantt,
     }
     return;
 }
+
 void FCFS_Algo()
 {
     ofstream fout;

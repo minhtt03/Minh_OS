@@ -5,7 +5,7 @@
 //  Created by MBA on 4/13/23.
 //
 
-#include "SJF.hpp"
+#include "SJF.h"
 void readProcess(int &n,SJF a[4])
 {
     ifstream fin;
@@ -34,13 +34,13 @@ void readProcess(int &n,SJF a[4])
                 }
                 else if ( flag ==0 )//cpu
                 {
-                    stpcpy(cpu, process.c_str());
+                    strcpy(cpu, process.c_str());
                     a[i].CPU_Burst.push_back(atoi(cpu));
                     flag = 1;
                 }
                 else //r
                 {
-                    stpcpy(r, process.c_str());
+                    strcpy(r, process.c_str());
                     a[i].CPU_Burst.push_back(atoi(r));
                     flag = 0;
                 }

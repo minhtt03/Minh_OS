@@ -14,7 +14,7 @@
 #include <vector>
 #include <cstring>
 #include <string>
-#include<string.h>
+#include <string.h>
 using namespace std;
 
 class RR
