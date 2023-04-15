@@ -43,7 +43,7 @@ void readFCFSProcess(int &n,FCFS a[4])
 
         getline(fin, process);
         if (process[process.size() - 1] != ' ') process += " ";
-        int flag = -1; // 0: CPU Burst Time, 1: IO Burst Time
+        int flag = -1;
         for (int j = 0; j < process.size(); j++)
         {
             if (process[j] == ' ') // If s[j] is not a space
@@ -267,16 +267,14 @@ void RR_Schedule(int NoProcess,int Quantum, vector<char>&CPU_Gantt, vector<char>
             {
                 if (a[c].CPU_Burst[0]==0  )
                 {
+                    a[c].CPU_Burst.erase(a[c].CPU_Burst.begin());
+                    Ready_CPU.erase(Ready_CPU.begin());//push Process
+                    if ( a[c].R_Burst.size() != 0)//check if have R
+                        Ready_R.push_back(c);
+                    else//Finished process
                     {
-                        a[c].CPU_Burst.erase(a[c].CPU_Burst.begin());
-                        Ready_CPU.erase(Ready_CPU.begin());//push Process
-                        if ( a[c].R_Burst.size() != 0)//check if have R
-                            Ready_R.push_back(c);
-                        else//Finished process
-                        {
-                            a[c].CompleteTime=Time;
-                            FinishedProcess++;
-                        }
+                        a[c].CompleteTime=Time;
+                        FinishedProcess++;
                     }
                     Ready_CPU.erase(Ready_CPU.begin());
                     Ready_CPU.push_back(c);
